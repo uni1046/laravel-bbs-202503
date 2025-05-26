@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8"
                         enctype="multipart/form-data">
                         @method('PUT')
                         @csrf

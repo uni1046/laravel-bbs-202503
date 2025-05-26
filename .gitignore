@@ -21,7 +21,7 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/public/uploads/images/avatars
+/public/images/avatars
 # Laravel IDE Helper
 _ide_helper.php
 .phpstorm.meta.php
