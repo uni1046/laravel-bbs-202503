@@ -14,6 +14,7 @@
 
                 <div class="card-body">
                     <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8">
+                        enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
 
@@ -29,7 +30,17 @@
                         </div>
                         <div class="mb-3">
                             <label for="introduction-field">{{ __('Profile') }}</label>
-                            <textarea name="introduction" id="introduction-field" class="form-control" rows="3">{{ old('introduction', $user->introduction) }}</textarea>
+                            <textarea name="introduction" id="introduction-field" class="form-control"
+                                      rows="3">{{ old('introduction', $user->introduction) }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="avatar" class="avatar-label form-label">{{ __('Avatar') }}</label>
+                            <input type="file" id="avatar" name="avatar" class="form-control">
+                            @if($user->avatar)
+                                <br>
+                                <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="200"
+                                     alt="Avatar"/>
+                            @endif
                         </div>
                         <div class="well well-sm">
                             <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
