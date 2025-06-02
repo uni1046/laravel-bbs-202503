@@ -6,8 +6,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\TopicController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PagesController::class, 'root'])->name('root');
@@ -37,4 +39,9 @@ Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify']
 Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 
-Route::resource('users', UsersController::class)->only(['show', 'update', 'edit']);
+Route::resource('users', UserController::class)->only(['show', 'update', 'edit']);
+
+Route::resource('topics', TopicController::class);
+
+// 按照分类显示话题
+Route::resource('categories', CategoryController::class)->only(['show']);
